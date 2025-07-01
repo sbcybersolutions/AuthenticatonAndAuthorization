@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/SafeVault/webform.8w3bdh8cu3.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\webform.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8w3bdh8cu3"},{"Name":"integrity","Value":"sha256-eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg="},{"Name":"label","Value":"_content/SafeVault/webform.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"301"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 17:02:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SafeVault/webform.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\webform.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"301"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 17:02:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

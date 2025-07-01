@@ -1,0 +1,362 @@
+{
+  "Version": 1,
+  "Hash": "VHMiTfRsxmFU9l1n/qsfsWJc6RA8j9ocQaBOnvAipEE=",
+  "Source": "SafeVault",
+  "BasePath": "_content/SafeVault",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SafeVault\\wwwroot",
+      "Source": "SafeVault",
+      "ContentRoot": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\",
+      "BasePath": "_content/SafeVault",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\obj\\Debug\\net9.0\\compressed\\cam4qh8q3u-8w3bdh8cu3.gz",
+      "SourceId": "SafeVault",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/SafeVault",
+      "RelativePath": "webform#[.{fingerprint=8w3bdh8cu3}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\webform.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "ziufs0moq0",
+      "Integrity": "S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\webform.html"
+    },
+    {
+      "Identity": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\webform.html",
+      "SourceId": "SafeVault",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\",
+      "BasePath": "_content/SafeVault",
+      "RelativePath": "webform#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8w3bdh8cu3",
+      "Integrity": "eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\webform.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "webform.8w3bdh8cu3.html",
+      "AssetFile": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\obj\\Debug\\net9.0\\compressed\\cam4qh8q3u-8w3bdh8cu3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005586592179"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "178"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 17:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8w3bdh8cu3"
+        },
+        {
+          "Name": "label",
+          "Value": "webform.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg="
+        }
+      ]
+    },
+    {
+      "Route": "webform.8w3bdh8cu3.html",
+      "AssetFile": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\webform.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 17:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8w3bdh8cu3"
+        },
+        {
+          "Name": "label",
+          "Value": "webform.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg="
+        }
+      ]
+    },
+    {
+      "Route": "webform.8w3bdh8cu3.html.gz",
+      "AssetFile": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\obj\\Debug\\net9.0\\compressed\\cam4qh8q3u-8w3bdh8cu3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "178"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 17:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8w3bdh8cu3"
+        },
+        {
+          "Name": "label",
+          "Value": "webform.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s="
+        }
+      ]
+    },
+    {
+      "Route": "webform.html",
+      "AssetFile": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\obj\\Debug\\net9.0\\compressed\\cam4qh8q3u-8w3bdh8cu3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005586592179"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "178"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 17:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg="
+        }
+      ]
+    },
+    {
+      "Route": "webform.html",
+      "AssetFile": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\wwwroot\\webform.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "301"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 17:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eHmHiDKgB1IljhDbNs3ThBK869EaYNPGg93HfbYzNmg="
+        }
+      ]
+    },
+    {
+      "Route": "webform.html.gz",
+      "AssetFile": "C:\\Users\\chris\\OneDrive\\Coursera\\MS Full Stack\\AuthenticationModule\\SafeVault\\obj\\Debug\\net9.0\\compressed\\cam4qh8q3u-8w3bdh8cu3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "178"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 17:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-S0RE0AgbXrI1YzXTnRhBAK3O1SuVjYFgBhanw12yE6s="
+        }
+      ]
+    }
+  ]
+}
