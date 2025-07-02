@@ -60,5 +60,19 @@ namespace SafeVault.Controllers
 
             return Ok("Login successful.");
         }
+
+        [HttpGet("admin/dashboard")]
+        public async Task<IActionResult> AdminDashboard([FromQuery] string username)
+        {
+            var user = await _userService.GetUserByUsernameAsync(username);
+
+            if (user == null)
+                return Unauthorized("User not found.");
+
+            if (user.Role != "Admin")
+                return Forbid("Access denied. Admins only.");
+
+            return Ok("Welcome to the Admin Dashboard.");
+        }
     }
 }

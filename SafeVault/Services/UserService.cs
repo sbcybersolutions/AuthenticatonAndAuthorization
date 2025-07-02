@@ -16,18 +16,21 @@ namespace SafeVault.Services
 
         public async Task<bool> RegisterAsync(string username, string email, string plainPassword)
         {
-            // Check if username already exists
             bool exists = await _context.Users.AnyAsync(u => u.Username == username);
             if (exists) return false;
 
             var passwordHash = Argon2.Hash(plainPassword);
+
+            var role = (username.ToLower() == "admin" || email.ToLower().Contains("admin"))
+                ? "Admin"
+                : "User";
 
             var user = new User
             {
                 Username = username,
                 Email = email,
                 PasswordHash = passwordHash,
-                Role = "User"
+                Role = role
             };
 
             _context.Users.Add(user);

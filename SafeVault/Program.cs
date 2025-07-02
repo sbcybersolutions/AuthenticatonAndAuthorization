@@ -38,4 +38,23 @@ app.UseHttpsRedirection();
 // 🛣️ Add your endpoint mappings here (e.g., app.MapControllers())
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    if (!context.Users.Any(u => u.Username == "admin"))
+    {
+        var adminUser = new SafeVault.Models.User
+        {
+            Username = "admin",
+            Email = "admin@safevault.com",
+            PasswordHash = Isopoh.Cryptography.Argon2.Argon2.Hash("AdminSecure123"),
+            Role = "Admin"
+        };
+
+        context.Users.Add(adminUser);
+        context.SaveChanges();
+    }
+}
+
 app.Run();
