@@ -1,0 +1,84 @@
+### 1. Register admin user
+POST http://localhost:5203/api/user/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "admin@safevault.com",
+  "password": "SuperSecure!123"
+}
+
+###
+
+### 2. Register standard user
+POST http://localhost:5203/api/user/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "user@safevault.com",
+  "password": "UserPass456"
+}
+
+###
+
+### 3. Successful login (admin)
+POST http://localhost:5203/api/user/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "admin@safevault.com",
+  "password": "AdminSecure123"
+}
+
+###
+
+### 4. Invalid password login (admin)
+POST http://localhost:5203/api/user/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "admin@safevault.com",
+  "password": "WrongPassword"
+}
+
+###
+
+### 5. Login non-existent user
+POST http://localhost:5203/api/user/login
+Content-Type: application/json
+
+{
+  "username": "ghostuser",
+  "email": "ghostuser@safevault.com",
+  "password": "DoesNotMatter"
+}
+
+###
+
+### 6. Admin dashboard access – admin
+GET http://localhost:5203/api/user/admin/dashboard?username=admin
+
+###
+
+### 7. Admin dashboard access – testuser
+GET http://localhost:5203/api/user/admin/dashboard?username=user
+
+###
+
+### 8. Admin dashboard – non-existent user
+GET http://localhost:5203/api/user/admin/dashboard?username=ghost
+
+###
+
+### 9. Get admin user info
+GET http://localhost:5203/api/user/admin
+
+###
+
+### 10. Get testuser info
+GET http://localhost:5203/api/user/testuser
+
+###
