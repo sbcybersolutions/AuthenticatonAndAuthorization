@@ -14,10 +14,10 @@ namespace SafeVault.Utilities
             // Encode HTML to prevent XSS
             string encoded = WebUtility.HtmlEncode(input);
 
-            // Remove SQL-related characters
-            string cleaned = Regex.Replace(encoded, @"['"";--]", string.Empty);
+            // Remove specific characters: single quote, double quote, semicolon, dash
+            string cleaned = Regex.Replace(encoded, @"['"";\-]", string.Empty);
 
-            // Optionally strip out any remaining tags
+            // Optionally strip out any remaining HTML tags
             cleaned = Regex.Replace(cleaned, @"<.*?>", string.Empty);
 
             return cleaned.Trim();

@@ -4,6 +4,8 @@ namespace SafeVault.Models
 {
     public class User
     {
+        public int Id { get; set; }  // Primary key
+
         [Required]
         [StringLength(100)]
         [RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Invalid username.")]
@@ -12,5 +14,10 @@ namespace SafeVault.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        [Required]
+        public string PasswordHash { get; set; }  // Store Argon2 hashed password
+
+        public string Role { get; set; } = "User";  // Optional, for future role-based access
     }
 }

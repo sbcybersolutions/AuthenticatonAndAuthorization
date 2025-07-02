@@ -1,43 +1,52 @@
-using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using SafeVault.Database;
 using SafeVault.Models;
+using Isopoh.Cryptography.Argon2;
 
 namespace SafeVault.Services
 {
     public class UserService
     {
-        private readonly string _connectionString;
+        private readonly ApplicationDbContext _context;
 
-        public UserService(string connectionString)
+        public UserService(ApplicationDbContext context)
         {
-            _connectionString = connectionString;
+            _context = context;
         }
 
-        public User? GetUserByUsername(string username)
+        public async Task<bool> RegisterAsync(string username, string email, string plainPassword)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            // Check if username already exists
+            bool exists = await _context.Users.AnyAsync(u => u.Username == username);
+            if (exists) return false;
+
+            var passwordHash = Argon2.Hash(plainPassword);
+
+            var user = new User
             {
-                conn.Open();
+                Username = username,
+                Email = email,
+                PasswordHash = passwordHash,
+                Role = "User"
+            };
 
-                string query = "SELECT Username, Email FROM Users WHERE Username = @Username";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Username", username);
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new User
-                            {
-                                Username = reader["Username"].ToString(),
-                                Email = reader["Email"].ToString()
-                            };
-                        }
-                    }
-                }
-            }
+        public async Task<User?> LoginAsync(string username, string plainPassword)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == username);
+            if (user == null || !Argon2.Verify(user.PasswordHash, plainPassword))
+                return null;
 
-            return null;
+            return user;
+        }
+
+        public async Task<User?> GetUserByUsernameAsync(string username)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
     }
 }
