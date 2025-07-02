@@ -18,6 +18,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddControllers();
 
+builder.Services.AddRazorPages();
+
 // ✅ Build the app
 var app = builder.Build();
 
@@ -55,6 +57,8 @@ using (var scope = app.Services.CreateScope())
         context.Users.Add(adminUser);
         context.SaveChanges();
     }
+
+    app.MapRazorPages();
 }
 
 app.Run();
