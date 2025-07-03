@@ -29,6 +29,18 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireRole(UserRoles.Admin));
+
+    options.AddPolicy("UserOrAdmin", policy =>
+        policy.RequireRole(UserRoles.User, UserRoles.Admin));
+
+    options.AddPolicy("GuestOnly", policy =>
+        policy.RequireRole(UserRoles.Guest));
+});
+
 // 🗃️ Configure EF Core with in-memory DB
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("SafeVaultMemoryDb"));
