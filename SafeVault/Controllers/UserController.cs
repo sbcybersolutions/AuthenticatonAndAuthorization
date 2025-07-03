@@ -33,22 +33,28 @@ namespace SafeVault.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] LoginRequest request)
-        {
-            if (!InputSanitizer.IsValidUsername(request.Username))
-                return BadRequest("Invalid username format.");
+            public async Task<IActionResult> Register([FromBody] LoginRequest request)
+            {
+                if (!InputSanitizer.IsValidUsername(request.Username))
+                    return BadRequest("Invalid username.");
 
-            var success = await _userService.RegisterAsync(
-                request.Username.Trim(),
-                request.Email.Trim(),
-                request.Password
-            );
+                if (!InputSanitizer.IsValidEmail(request.Email))
+                    return BadRequest("Invalid email.");
 
-            if (!success)
-                return Conflict("Username is already taken.");
+                if (string.IsNullOrWhiteSpace(request.Password))
+                    return BadRequest("Password required.");
 
-            return Ok("Registration successful.");
-        }
+                bool result = await _userService.RegisterAsync(
+                    InputSanitizer.Sanitize(request.Username),
+                    InputSanitizer.Sanitize(request.Email),
+                    request.Password
+                );
+
+                if (!result)
+                    return Conflict("Username already taken.");
+
+                return Ok("Registration successful.");
+            }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
@@ -74,5 +80,7 @@ namespace SafeVault.Controllers
 
             return Ok("Welcome to the Admin Dashboard.");
         }
+
+        
     }
 }
