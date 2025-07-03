@@ -18,6 +18,6 @@ namespace SafeVault.Models
         [Required]
         public string PasswordHash { get; set; }  // Store Argon2 hashed password
 
-        public string Role { get; set; } = "User";  // Optional, for future role-based access
+        public string Role { get; set; } = UserRoles.Guest;  // Optional, for future role-based access
     }
 }

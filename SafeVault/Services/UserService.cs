@@ -14,7 +14,7 @@ namespace SafeVault.Services
             _context = context;
         }
 
-        public async Task<bool> RegisterAsync(string username, string email, string plainPassword)
+        public async Task<bool> RegisterAsync(string username, string email, string plainPassword, string role)
         {
             bool exists = await _context.Users.AnyAsync(u => u.Username == username);
             if (exists) return false;
@@ -26,13 +26,13 @@ namespace SafeVault.Services
                 Username = username,
                 Email = email,
                 PasswordHash = hash,
-                Role = "User"  // or "Admin" dynamically if needed
+                Role = role  // ✅ Accepts "Admin", "User", or "Guest"
             };
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return true;
-    }
+        }
         public async Task<User?> LoginAsync(string username, string plainPassword)
         {
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == username);

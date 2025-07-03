@@ -50,11 +50,13 @@ namespace SafeVault.Controllers
                 if (string.IsNullOrWhiteSpace(request.Password))
                     return BadRequest("Password required.");
 
-                bool result = await _userService.RegisterAsync(
-                    InputSanitizer.Sanitize(request.Username),
-                    InputSanitizer.Sanitize(request.Email),
-                    request.Password
-                );
+               bool result = await _userService.RegisterAsync(
+                request.Username,
+                request.Email,
+                request.Password,
+                string.IsNullOrWhiteSpace(request.Role) ? UserRoles.User : request.Role
+            );
+
 
                 if (!result)
                     return Conflict("Username already taken.");
