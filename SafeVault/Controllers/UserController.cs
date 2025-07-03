@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using SafeVault.Services;
 using SafeVault.Utilities;
 using SafeVault.Models;
+using Isopoh.Cryptography.Argon2;
+using System.Security.Claims;
 
 namespace SafeVault.Controllers
 {
@@ -16,6 +19,8 @@ namespace SafeVault.Controllers
             _userService = userService;
         }
 
+        // 🔍 Get a user by username
+        [Authorize]
         [HttpGet("{username}")]
         public async Task<IActionResult> GetUser(string username)
         {
@@ -32,8 +37,9 @@ namespace SafeVault.Controllers
             return Ok(user);
         }
 
+        // 📝 Register a new user
         [HttpPost("register")]
-            public async Task<IActionResult> Register([FromBody] LoginRequest request)
+            public async Task<IActionResult> Register([FromBody] RegisterRequest request)
             {
                 if (!InputSanitizer.IsValidUsername(request.Username))
                     return BadRequest("Invalid username.");
@@ -56,31 +62,28 @@ namespace SafeVault.Controllers
                 return Ok("Registration successful.");
             }
 
+        // 🔐 Login and receive JWT token
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest request)
-        {
-            var user = await _userService.LoginAsync(request.Username, request.Password);
+            public async Task<IActionResult> Login([FromBody] LoginRequest request)
+            {
+                if (string.IsNullOrWhiteSpace(request.Username) || string.IsNullOrWhiteSpace(request.Password))
+                    return BadRequest("Username and password are required.");
 
-            if (user == null)
-                return Unauthorized("Invalid username or password.");
+                var user = await _userService.GetUserByUsernameAsync(request.Username);
+                if (user == null || !Argon2.Verify(user.PasswordHash, request.Password))
+                    return Unauthorized("Invalid credentials.");
 
-            return Ok("Login successful.");
-        }
+                var token = JwtHelper.GenerateToken(user.Username, user.Role);
+                return Ok(new { token });
+            }
 
+        // 🛡️ Secure Admin Dashboard with role-based authorization
+        [Authorize(Roles = "Admin")]
         [HttpGet("admin/dashboard")]
-        public async Task<IActionResult> AdminDashboard([FromQuery] string username)
+        public IActionResult AdminDashboard()
         {
-            var user = await _userService.GetUserByUsernameAsync(username);
-
-            if (user == null)
-                return Unauthorized("User not found.");
-
-            if (user.Role != "Admin")
-                return Forbid("Access denied. Admins only.");
-
-            return Ok("Welcome to the Admin Dashboard.");
+            var username = User.FindFirstValue(ClaimTypes.Name);
+            return Ok($"Welcome to the Admin Dashboard, {username}.");
         }
-
-        
     }
 }
